@@ -14,10 +14,25 @@ const GlobalContext = createContext(initialState);
 // Provider Component
 const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
+    console.log("Current State is : " + JSON.stringify(state))
+    //Actrions
+    const removeUser = (id) => {
+        dispatch({
+            type: 'REMOVE_USER',
+            payload: id
+        })
+    }
+
+    const addUser = (user) => {
+        dispatch({
+            type: 'ADD_USER',
+            payload: user
+        })
+    }
 
 
     return (
-        <GlobalContext.Provider value={{ users: state.users }} >
+        <GlobalContext.Provider value={{ users: state.users, removeUser: removeUser, addUser: addUser }} >
             {children}
         </GlobalContext.Provider >
     )
