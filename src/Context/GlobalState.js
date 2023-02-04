@@ -13,11 +13,13 @@ const GlobalContext = createContext(initialState);
 
 // Provider Component
 const GlobalProvider = ({ children }) => {
-    const { state, dispatch } = useReducer(AppReducer, initialState);
+    const [state, dispatch] = useReducer(AppReducer, initialState)
+
+
     return (
-        <GlobalContext.Provider value={{ users: state.users }}>
+        <GlobalContext.Provider value={{ users: state.users }} >
             {children}
-        </GlobalContext.Provider>
+        </GlobalContext.Provider >
     )
 }
 export { GlobalContext, GlobalProvider };
