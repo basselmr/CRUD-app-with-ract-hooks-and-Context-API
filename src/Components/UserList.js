@@ -14,11 +14,10 @@ const UserList = () => {
                         <strong>{usr.name}</strong>
                         <div className="ms-auto">
                             <Link className="btn btn-warning ms-1" to={`/edituser/${usr.id}`}>Edit</Link>
-                            <button onClick={() => removeUser(usr.id)} className="btn btn-danger ms-1">Delete</button>
+                            <Button onClick={() => removeUser(usr.id)} className="btn btn-danger ms-1">Delete</Button>
                         </div>
                     </ListGroupItem>))}
             </ListGroup>
-
         </>
     )
 }
